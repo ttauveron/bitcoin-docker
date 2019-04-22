@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+
+  bitcoin-core:
+    image: bitcoin
+    build: bitcoin
+    volumes:
+      - "/hdd/bitcoin:/home/bitcoin/.bitcoin"
+      - "./bitcoin.conf:/home/bitcoin/.bitcoin/bitcoin.conf"
+    ports:
+      - 8332:8332
+      - 8333:8333
+#      - 18332:18332
+#      - 18333:18333
+#      - 18443:18443
+#      - 18444:18444
+    command: bitcoind -printtoconsole
+
